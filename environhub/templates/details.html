@@ -81,17 +81,18 @@
                 </div>
         </div>
     </div>
+    <div class="container">
     <div id="timeinterest">
         <div class="row text-center" style="margin-top:5%;">
             <span class="h1">Interest over time</span>
         </div>
         <div id="chart_time" style="margin-left: auto;margin-right: auto;height: 800px;"></div>
     </div>
-    <div class="row text-center" style="margin-top:5%;">
+    <div class="row text-center" style="margin-top:5%;margin-bottom: 2%;">
         <span class="h1">Interest over place</span>
     </div>
     
-    <div id="map" style="height:500px;width:80%;margin-left: auto;margin-right: auto;">
+    <div id="map" style="width:80%;margin-left: auto;margin-right: auto;margin-bottom: 200px;">
         <script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/1754_RC01/embed_loader.js"></script>
         <script type="text/javascript"> trends.embed.renderExploreWidget("GEO_MAP", {"comparisonItem":[{"keyword":"/m/0fn51y","geo":"IN","time":"2004-01-01 2019-04-11"}],"category":0,"property":""}, {"exploreQuery":"date=all&geo=IN&q=%2Fm%2F0fn51y","guestPath":"https://trends.google.com:443/trends/embed/"}); </script>
     </div>
@@ -133,6 +134,7 @@
             </div>
         </template>
     </div>
+</div>
 
     <script src="{{url_for('static',filename='js/jquery-1.10.2.js')}}"></script>
     <script src="{{url_for('static',filename='js/loader.js')}}"></script>

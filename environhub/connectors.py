@@ -40,15 +40,17 @@ def getIssueOverPlace(issue="kaveriissue"):
 
 
 def getIssueTimeLine(issue="kaveriissue"):
-    try:
+    # try:
         df = pd.read_excel("{}.xlsx".format(issue), sheet_name="Timeline")
         List = df.values.tolist()
         n = len(List)
+        # print(List)
         for i in range(n):
             List[i][2] = time.mktime(List[i][2].timetuple())
+            # print(List[i][2])
         return json.dumps({"data": List}), 200
-    except Exception:
-        return "Error", 300
+    # except Exception:
+    #     return "Error", 300
 
 
 def listIssues():
@@ -56,4 +58,5 @@ def listIssues():
     List = df.values.tolist()
     return json.dumps({"data": List}), 200
 
-# print(getIssueOverTime())
+
+# getIssueTimeLine("climatechange")

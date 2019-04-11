@@ -246,25 +246,28 @@
                 url: "http://localhost:5000/api/issues/list",
                 success: function(res){
                     var array = JSON.parse(res).data;
-                    var i = 0;
+                    let i = 0;
                     for(i = 0; i < array.length; i++){
-                        var marker = new google.maps.Marker({
-                            position: {lat:array[i][0], lng:array[i][1]},
-                            map: map,
-                            title: array[i][2]
-                        });
-                        marker.addListener('click', function() {
-                            new google.maps.InfoWindow({
+                        let infowindow = new google.maps.InfoWindow({
                             content: '<div id="content" style="color:#000;">'+
                         '<div id="siteNotice">'+
                         '</div>'+
                         '<h1 id="firstHeading" class="firstHeading" style="color:#000;">'+array[i][2]
                             +'</h1><div id="bodyContent">'+
                         '<p style="color:#000;">'+array[i][3]+'</p>'+
-                        '<p style="color:#0000fc;"><a class="h4" href="https://localhost:5000/details/'
-                        +array[i][4]+'">Read More Here</a></p></div></div>'
-                        }).open(map, marker);
+                        '<p style="color:#0000fc;"><a class="h4" href='+
+                        '"http://localhost:5000/details/'+array[i][4]+'">Read More Here</a></p>'+
+                        '</div></div>'
                         });
+                        let marker = new google.maps.Marker({
+                            position: {lat:array[i][0], lng:array[i][1]},
+                            map: map,
+                            title: array[i][2]
+                        });
+                        marker.addListener('click', function() {
+                            infowindow.open(map, marker);
+                        });
+                     //   debugger;
                     }
                 },
                 error: function(){

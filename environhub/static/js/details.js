@@ -41,20 +41,19 @@ function fillTimeline(){
                 var date = new Date(array[i][2]*1000);
                 var today = date.toISOString().substring(0, 10);
                 timelineTemplateSingle.find(".timeline-stamp").text(today);
-                if (array[i][0]=="media intervention") {
-                    
+                if (array[i][0].toLowerCase()=="media intervention") {
                     timelineTemplateSingle.find(".timeline-images").attr("src", "https://www.pinclipart.com/picdir/middle/5-50567_film-clipart-media-camera-film-maker-clipart-png.png");
                 }
-                if (array[i][0]=="political intervention") {
+                if (array[i][0].toLowerCase()=="political intervention") {
                     timelineTemplateSingle.find(".timeline-images").attr("src", "http://clipart-library.com/image_gallery/137134.png");
                 }
-                if (array[i][0]=="court judgement") {
+                if (array[i][0].toLowerCase()=="court judgement") {
                     timelineTemplateSingle.find(".timeline-images").attr("src", "http://srilankabrief.org/wp-content/uploads/2016/07/2000px-Seal_of_the_Judicial_Yuan.svg.png");
                 }
-                if (array[i][0]=="geographical effect") {
+                if (array[i][0].toLowerCase()=="geographical effect" || array[i][0].toLowerCase()=="geological effect") {
                     timelineTemplateSingle.find(".timeline-images").attr("src", "http://clipart-library.com/data_images/373540.png");
                 }
-                if (array[i][0]=="actions taken") {
+                if (array[i][0].toLowerCase()=="actions taken") {
                     timelineTemplateSingle.find(".timeline-images").attr("src", "https://ya-webdesign.com/images/politics-clipart-group-debate-15.png");
                 }
                 $("#container-timeline").append(timelineTemplateSingle);
@@ -120,6 +119,5 @@ $(function(){
     fillAccounts();
     fillTimeline();
     google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
-    
+    google.charts.setOnLoadCallback(drawChart);    
 });
