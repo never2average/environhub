@@ -2,7 +2,7 @@ from flask import Flask, make_response, render_template
 from flask_restful import Api, Resource, request
 from connectors import getIssueSummary, getIssueOverTime
 from connectors import getIssueOverPlace, getIssueTimeLine
-from connectors import getIssueAccounts
+from connectors import getIssueAccounts, listIssues
 
 
 app = Flask(__name__)
@@ -55,11 +55,17 @@ class GetIssueTimeLine(Resource):
         return make_response(getIssueTimeLine(data))
 
 
+class ListIssues(Resource):
+    def get(self):
+        return make_response(listIssues())
+
+
 api.add_resource(GetSummary, "/api/summary")
 api.add_resource(GetIssueOverTime, "/api/issue/time")
 api.add_resource(GetIssueAccount, "/api/issue/account")
 api.add_resource(GetIssueTimeLine, "/api/issue/timeline")
 api.add_resource(GetIssueOverPlace, "/api/issue/place")
+api.add_resource(ListIssues, "/api/issues/list")
 
 
 if __name__ == "__main__":

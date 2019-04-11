@@ -51,4 +51,9 @@ def getIssueTimeLine(issue="kaveriissue"):
         return "Error", 300
 
 
+def listIssues():
+    df = pd.read_excel("index.xlsx", sheet_name="CITYMAP")
+    List = df.values.tolist()
+    return json.dumps({"data": List}), 200
+
 # print(getIssueOverTime())

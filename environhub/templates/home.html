@@ -169,7 +169,7 @@
     <!-- <br>
     <h1 style="color:#159238;" class="text-center">GALLERY</h1>
     <br> -->
-    <div id="regions_div" style="width: 100%; height: 500px;"></div>
+    <div id="regions_div" style="width: 100%; height: 800px;"></div>
 
     <div id="gallery" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
@@ -232,30 +232,52 @@
     <script src="{{url_for('static', filename='js/home.js')}}"></script>
     
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load("current", {
-        "packages":["map"],
-        // Note: you will need to get a mapsApiKey for your project.
-        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-        "mapsApiKey": "AIzaSyAI0yrL3DcOHRwpq39EMokt_3XXgZVG6N8"
-    });
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Lat', 'Long', 'Issue'],
-          [9.93, 76.26, "Alappad Mining Issue"],
-          [28.61, 77.21, "Stubble Burning"],
-          [12.97, 77.59, "Kaveri River Water Dispute"],
-          [23.34, 85.31, "Chipko Movement"],
-          [22.31, 73.18, "Sardar Sarovar Dam"]
-        ]);
+    <script>
+      
+            function initMap() {
+              var delhi = {lat:28.61, lng:77.21};
+              var map = new google.maps.Map(document.getElementById('regions_div'), {
+                zoom: 5,
+                center: {lat:23.18, lng:79.99}
+              });
 
-        var map = new google.visualization.Map(document.getElementById('regions_div'));
-        map.draw(data, {
-          showTooltip: true,
-          showInfoWindow: true
-      })
-    }
+              $.ajax({
+                type: "GET",
+                url: "http://localhost:5000/api/issues/list",
+                success: function(res){
+                    var array = JSON.parse(res).data;
+                    var i = 0;
+                    for(i = 0; i < array.length; i++){
+                        var infowindow = new google.maps.InfoWindow({
+                            content: '<div id="content" style="color:#000;">'+
+                        '<div id="siteNotice">'+
+                        '</div>'+
+                        '<h1 id="firstHeading" class="firstHeading" style="color:#000;">'+array[i][2]
+                            +'</h1><div id="bodyContent">'+
+                        '<p style="color:#000;">'+array[i][3]+'</p>'+
+                        '<p style="color:#0000fc;"><a class="h4" href='+
+                        '"https://localhost:5000/details/'+array[i][4]+'">Read More Here</a></p>'+
+                        '</div></div>'
+                        });
+                        var marker = new google.maps.Marker({
+                            position: {lat:array[i][0], lng:array[i][1]},
+                            map: map,
+                            title: array[i][2]
+                        });
+                        marker.addListener('click', function() {
+                            infowindow.open(map, marker);
+                        });
+                    }
+                },
+                error: function(){
+                    return false;
+                }
+              });
+
+            }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAI0yrL3DcOHRwpq39EMokt_3XXgZVG6N8&callback=initMap">
     </script>
 
         
