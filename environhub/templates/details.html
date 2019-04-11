@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="{{url_for('static', filename='css/bootstrap.css')}}" rel="stylesheet" />
+    <!--  Font-Awesome Style -->
+    <link rel="stylesheet" 
+    href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" 
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" 
+    crossorigin="anonymous">    
+    <!--  Animation Style -->
+    <link href="{{url_for('static', filename='css/animate.css')}}" rel="stylesheet" />
+    <!--  Pretty Photo Style -->
+    <link href="{{url_for('static', filename='css/prettyPhoto.css')}}" rel="stylesheet" />
+    <!--  Google Font Style -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <!--  Custom Style -->
+    <link href="{{url_for('static', filename='css/home.css')}}" rel="stylesheet"/>
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top move-me ">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="/">
+                    <img src="{{url_for('static', filename='images/logo.png')}}" class="navbar-brand-logo " alt="" />
+
+                </a>
+            </div>
+            <div class="navbar-collapse collapse move-me">
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li>
+                        <a href="/">HOME 
+
+                        </a>
+
+                    </li>
+
+                    <li>
+                        <a href="/#gallery">GALLERY
+                        </a>
+
+                    </li>
+
+                    <li >
+                        <a href="/forum">INTERACT
+                        </a>
+
+                    </li>
+
+                    <li >
+                        <a href="/#contact">CONTACT US 
+                        </a>
+
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div id="home" >
+        <div class="overlay align-items-center">
+                <div class="container">
+                        <div class="row text-center" style="background:rgba(255,255,255,0.8);margin-top: 10%;padding:6%;">
+                                <span class="h3" style="color:#4c4c4c;">
+                                    <span class="h1" style="color:#4c4c4c;" class="text-center">Summary</span>
+                                    <br><br>
+                                    {{issue_summary}}
+                                </span>
+                        </div>
+                        <br><br>
+                </div>
+        </div>
+    </div>
+    <div id="timeinterest">
+        <div class="row text-center" style="margin-top:5%;">
+            <span class="h1">Interest over time</span>
+        </div>
+        <div id="chart_time" style="margin-left: auto;margin-right: auto;height: 800px;"></div>
+    </div>
+    <div class="row text-center" style="margin-top:5%;">
+        <span class="h1">Interest over place</span>
+    </div>
+    
+    <div id="map" style="height:500px;width:80%;margin-left: auto;margin-right: auto;">
+        <script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/1754_RC01/embed_loader.js"></script>
+        <script type="text/javascript"> trends.embed.renderExploreWidget("GEO_MAP", {"comparisonItem":[{"keyword":"/m/0fn51y","geo":"IN","time":"2004-01-01 2019-04-11"}],"category":0,"property":""}, {"exploreQuery":"date=all&geo=IN&q=%2Fm%2F0fn51y","guestPath":"https://trends.google.com:443/trends/embed/"}); </script>
+    </div>
+
+    <div class="row text-center" style="margin-top:3%;">
+        <span class="h1">Timeline</span>
+    </div>
+
+    <div class="row" id="container-timeline">
+        <template id="template-timeline">
+            <div class="container" style="margin-top:3%;">
+                <div class="row text-center" style="padding:3%; background:rgba(255,255,255,0.8);">
+                    <span class="h2 timeline-stamp" style="color:#000;margin-right: 2%;font-weight: 900	;">
+                        TimeStamp
+                    </span>
+                </div>
+                <div class="row text-center" style="padding:3%; background:rgba(255,255,255,0.8);">
+                    <img class="image-cropper timeline-images" style="height:150px;width:150px;">
+                </div>
+                <div class="row text-center" style="padding:3%; background:rgba(255,255,255,0.8);">
+                    <span class="h3 timeline-desc" style="color:#000;">eljfnkwdsx</span>
+                </div>
+            </div>
+        </template>
+    </div>
+
+    <div class="row text-center" style="margin-top:3%;margin-bottom: 5%">
+        <span class="h1">Personal Accounts</span>
+    </div>
+    
+    <div class="row" id="container-accounts">
+        <template id="template-accounts">
+            <div class="container" style="margin-bottom:3%!important;">
+                    <div class="row speech-bubble circular-sb" style="margin-right:10%;margin-left:10%">
+                            <span class="h3 accounts-text" style="color:#4c4c4c;"></span><br><br>
+                            <span class = "h3 accounts-teller"></span><br>
+                            <span class = "h4 accounts-teller-position"></span>
+                    </div>
+            </div>
+        </template>
+    </div>
+
+    <script src="{{url_for('static',filename='js/jquery-1.10.2.js')}}"></script>
+    <script src="{{url_for('static',filename='js/loader.js')}}"></script>
+    <script src="{{url_for('static',filename='js/details.js')}}"></script>
+    
+</body>
+</html>

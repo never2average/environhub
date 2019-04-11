@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FORUM</title>
+    <link href="{{url_for('static', filename='css/bootstrap.css')}}" rel="stylesheet" />
+    <!--  Font-Awesome Style -->
+    <link rel="stylesheet" 
+    href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" 
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" 
+    crossorigin="anonymous">    
+    <!--  Animation Style -->
+    <link href="{{url_for('static', filename='css/animate.css')}}" rel="stylesheet" />
+    <!--  Pretty Photo Style -->
+    <link href="{{url_for('static', filename='css/prettyPhoto.css')}}" rel="stylesheet" />
+    <!--  Google Font Style -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <!--  Custom Style -->
+    <link href="{{url_for('static', filename='css/home.css')}}" rel="stylesheet" />
+</head>
+<body style="background:#222;">
+        <div class="navbar navbar-default navbar-fixed-top move-me ">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+        
+                        <a class="navbar-brand" href="#">
+                            <img src="{{url_for('static', filename='images/logo.png')}}" class="navbar-brand-logo " alt="" />
+        
+                        </a>
+                    </div>
+                    <div class="navbar-collapse collapse move-me">
+                        <ul class="nav navbar-nav navbar-right">
+        
+                            <li >
+                                <a href="/">HOME 
+        
+                                </a>
+        
+                            </li>
+                            <li >
+                                <a href="/">GALLERY
+                                </a>
+        
+                            </li>
+        
+                            <li >
+                                <a href="/forum">INTERACT
+                                </a>
+        
+                            </li>
+        
+                            <li >
+                                <a href="/">CONTACT US 
+                                </a>
+        
+                            </li>
+                        </ul>
+                    </div>
+        
+                </div>
+            </div>
+        <div id="disqus_thread" style="margin-top:80px;margin-left: 5%; margin-right: 5%;"></div>
+        <script>
+        
+        var disqus_config = function () {
+        this.page.url = "http://localhost:5000/forum"
+        this.page.identifier = "pageforum"
+        };
+        (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://environhub.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <script id="dsq-count-scr" src="//environhub.disqus.com/count.js" async></script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</body>
+</html>

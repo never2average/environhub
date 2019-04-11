@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>ENVIRONHUB</title>
+    <!--  Bootstrap Style -->
+    <link href="{{url_for('static', filename='css/bootstrap.css')}}" rel="stylesheet" />
+    <!--  Font-Awesome Style -->
+    <link rel="stylesheet" 
+    href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" 
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" 
+    crossorigin="anonymous">    
+    <!--  Animation Style -->
+    <link href="{{url_for('static', filename='css/animate.css')}}" rel="stylesheet" />
+    <!--  Pretty Photo Style -->
+    <link href="{{url_for('static', filename='css/prettyPhoto.css')}}" rel="stylesheet" />
+    <!--  Google Font Style -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <!--  Custom Style -->
+    <link href="{{url_for('static', filename='css/home.css')}}" rel="stylesheet" />
+</head>
+<body>
+    <div id="pre-div">
+        <div id="loader">
+        </div>
+    </div>
+    <!--/. PRELOADER END -->
+    <div class="navbar navbar-default navbar-fixed-top move-me ">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="#">
+                    <img src="{{url_for('static', filename='images/logo.png')}}" class="navbar-brand-logo " alt="" />
+
+                </a>
+            </div>
+            <div class="navbar-collapse collapse move-me">
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li>
+                        <a href="#home">HOME 
+
+                        </a>
+
+                    </li>
+
+                    <li>
+                        <a href="#gallery">GALLERY
+                        </a>
+
+                    </li>
+
+                    <li >
+                        <a href="/forum">INTERACT
+                        </a>
+
+                    </li>
+
+                    <li >
+                        <a href="#contact">CONTACT US 
+                        </a>
+
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <!--./ NAV BAR END -->
+    <div id="home" >
+        <div class="overlay">
+            <div class="container">
+                    <div class="row">
+                            <span class="h3">
+                                <h1 style="color:#fff;">Our Purpose</h1>
+                                The purpose of this website is to increase online awareness about ecological issues 
+                                pertaining to India, thereby hoping to develop pressure on the concerned authorities 
+                                to solve these issues faster an more efficiently. 
+                            </span>
+                    </div>
+                    <br><br><br><br>
+                    <div class="row text-center">
+                    <div class="col-lg-6 col-md-6">
+                        <div>
+                            <div class="pull-left">
+                                <i class="far fa-map fa-4x "></i>
+                            </div>
+                            <div class="media-body">
+                                <h3 class="media-heading">Choose</h3>
+                                <p>
+                                    View our map of India where we have categorized each issue geographically
+                                    and also indicated the intensity of online awareness of each issue. 
+                                </p>
+    
+                            </div>
+                        </div>
+                        <div>
+                            <div class="pull-left">
+                                    <i class="fas fa-pen-nib fa-4x"></i>
+                            </div>
+                            <div class="media-body">
+                                <h3 class="media-heading">Read</h3>
+                                <p>
+                                    Our collection of hand-picked stories from the farthest corners of India,
+                                    that we collect from the people who were most impacted by the issue.
+                                    <br>
+                                    <br>
+                                    <br>
+                                </p>
+    
+                            </div>
+                        </div>
+                    </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div>
+                                <div class="pull-left">
+                                    <i class="far fa-chart-bar fa-4x"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="media-heading">Analyze</h3>
+                                    <p >
+                                        View specific events in the timeline of each of these events, 
+                                        analyze our statistics and try to correlate them and see how concerned
+                                        various people in the country are.
+                                    </p>
+        
+                                </div>
+                            </div>
+                            <div>
+                                <div class="pull-left">
+                                    <i class="far fa-comment fa-4x"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="media-heading">Discuss</h3>
+                                    <p>
+                                        After you are done reading, take some time off and discuss on the same
+                                        with our other readers, because as you know, knowledge grows by sharing.
+                                        <br>
+                                        <br>
+                                        <br>
+                                    </p>
+        
+                                </div>
+                            </div>
+        
+                        </div>
+        
+
+                    </div>
+                    <div class="row">
+        
+                    </div>
+            </div>
+        </div>
+    </div>
+    <!--./ HOME SECTION END -->
+    <!--./ ABOUT SECTION END -->
+    <!-- <br>
+    <h1 style="color:#159238;" class="text-center">GALLERY</h1>
+    <br> -->
+    <div id="regions_div" style="width: 100%; height: 500px;"></div>
+
+    <div id="gallery" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators" >
+              <li data-target="#myCarousel" style="border:2px solid #fff;" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" style="border:2px solid #fff;" data-slide-to="1"></li>
+              <li data-target="#myCarousel" style="border:2px solid #fff;" data-slide-to="2"></li>
+            </ol>
+          
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+              <div class="item active">
+                <img src="{{url_for('static',filename='images/slide1.cms')}}" alt="Chania">
+              </div>
+          
+              <div class="item">
+                <img src="{{url_for('static',filename='images/slide4.jpg')}}" alt="Chicago">
+              </div>
+          
+              <div class="item">
+                <img src="{{url_for('static',filename='images/slide3.jpg')}}" alt="New York">
+              </div>
+            </div>
+    </div>
+    <div id="contact" >
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+                    <h2 data-wow-delay="0.3s" class="wow rollIn animated" style="color:#fff;"><strong>CONTACT US </strong></h2>
+                </div>
+            </div>
+            <div class="row pad-top-botm">
+                <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+                    <form action="https://formspree.io/priye.sh.sriv2017@gmail.com" method="POST" >
+                        <div class="form-group" style="color:#fff!important;">
+                            <input type="text" class="form-control wow rotateIn animated" required="required" data-wow-delay="0.6s" placeholder="Your Email">
+                        </div>
+                        <div class="form-group" style="color:#fff!important;">
+                            <textarea name="message"  required="required" data-wow-delay="0.7s" class="wow rotateIn animated form-control" style="min-height: 150px;" placeholder="Message"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success btn-block btn-lg wow rotateIn animated " data-wow-delay="0.8s">SUBMIT REQUEST</button>
+                        </div>
+                    </form>
+                </div>
+            </div>  
+        </div>
+    </div>
+    <!--  Jquery Core Script -->
+    <script src="{{url_for('static', filename='js/jquery-1.10.2.js')}}"></script>
+    <!--  Core Bootstrap Script -->
+    <script src="{{url_for('static', filename='js/bootstrap.js')}}"></script>
+     <!--  WOW Script -->
+    <script src="{{url_for('static', filename='js/wow.min.js')}}"></script>
+    <!--  Scrolling Script -->
+    <script src="{{url_for('static', filename='js/jquery.easing.min.js')}}"></script>
+    <!--  PrettyPhoto Script -->
+    <script src="{{url_for('static', filename='js/jquery.prettyPhoto.js')}}"></script>
+    <!--  Custom Scripts -->
+    <script src="{{url_for('static', filename='js/home.js')}}"></script>
+    
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {
+        "packages":["map"],
+        // Note: you will need to get a mapsApiKey for your project.
+        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+        "mapsApiKey": "AIzaSyAI0yrL3DcOHRwpq39EMokt_3XXgZVG6N8"
+    });
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Lat', 'Long', 'Issue'],
+          [9.93, 76.26, "Alappad Mining Issue"],
+          [28.61, 77.21, "Stubble Burning"],
+          [12.97, 77.59, "Kaveri River Water Dispute"],
+          [23.34, 85.31, "Chipko Movement"],
+          [22.31, 73.18, "Sardar Sarovar Dam"]
+        ]);
+
+        var map = new google.visualization.Map(document.getElementById('regions_div'));
+        map.draw(data, {
+          showTooltip: true,
+          showInfoWindow: true
+      })
+    }
+    </script>
+
+        
+
+</body>
+</html>
