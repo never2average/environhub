@@ -4,7 +4,7 @@ var $imagesTemplate;
 function fillAccounts(){
     $.ajax({
         type:"GET",
-        url:"http://localhost:5000/api/issue/account",
+        url:"http://3.83.202.162//api/issue/account",
         headers:{
             "issue": window.location.href.split('/').reverse()[0]
         },
@@ -28,7 +28,7 @@ function fillAccounts(){
 function fillTimeline(){
     $.ajax({
         type:"GET",
-        url:"http://localhost:5000/api/issue/timeline",
+        url:"http://3.83.202.162//api/issue/timeline",
         headers:{
             "issue": window.location.href.split('/').reverse()[0]
         },
@@ -70,7 +70,7 @@ function fillTimePlot(){
     return new Promise((resolve, reject) => {
         $.ajax({
             type:"GET",
-            url:"http://localhost:5000/api/issue/time",
+            url:"http://3.83.202.162//api/issue/time",
             headers:{
                 "issue": window.location.href.split('/').reverse()[0]
             },
@@ -89,7 +89,7 @@ function fillTimePlot(){
 function getImages(){
     $.ajax({
         type:"GET",
-        url:"http://localhost:5000/api/issue/images",
+        url:"http://3.83.202.162//api/issue/images",
         headers:{
             "issue": window.location.href.split('/').reverse()[0]
         },

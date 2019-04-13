@@ -220,7 +220,7 @@
 
               $.ajax({
                 type: "GET",
-                url: "http://localhost:5000/api/issues/list",
+                url: "http://3.83.202.162//api/issues/list",
                 success: function(res){
                     var array = JSON.parse(res).data;
                     let i = 0;
@@ -233,7 +233,7 @@
                             +'</h1><div id="bodyContent">'+
                         '<p style="color:#000;">'+array[i][3]+'</p>'+
                         '<p style="color:#0000fc;"><a class="h4" href='+
-                        '"http://localhost:5000/details/'+array[i][4]+'">Read More Here</a></p>'+
+                        '"http://3.83.202.162//details/'+array[i][4]+'">Read More Here</a></p>'+
                         '</div></div>'
                         });
                         let marker = new google.maps.Marker({
