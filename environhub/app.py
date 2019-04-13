@@ -3,6 +3,7 @@ from flask_restful import Api, Resource, request
 from connectors import getIssueSummary, getIssueOverTime
 from connectors import getIssueOverPlace, getIssueTimeLine
 from connectors import getIssueAccounts, listIssues, getTrendsKey
+from connectors import getImages
 
 
 app = Flask(__name__)
@@ -64,12 +65,19 @@ class ListIssues(Resource):
         return make_response(listIssues())
 
 
+class GetIssueImages(Resource):
+    def get(self):
+        data = request.headers.get("issue")
+        return make_response(getImages(data))
+
+
 api.add_resource(GetSummary, "/api/summary")
 api.add_resource(GetIssueOverTime, "/api/issue/time")
 api.add_resource(GetIssueAccount, "/api/issue/account")
 api.add_resource(GetIssueTimeLine, "/api/issue/timeline")
 api.add_resource(GetIssueOverPlace, "/api/issue/place")
 api.add_resource(ListIssues, "/api/issues/list")
+api.add_resource(GetIssueImages, "/api/issue/images")
 
 
 if __name__ == "__main__":

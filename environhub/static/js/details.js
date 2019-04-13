@@ -1,5 +1,6 @@
 var $accountsTemplate;
 var $timelineTemplate;
+var $imagesTemplate;
 function fillAccounts(){
     $.ajax({
         type:"GET",
@@ -34,7 +35,6 @@ function fillTimeline(){
         success: function(res){
             var array = JSON.parse(res).data;
             var i;
-            console.log(res);
             for (i = 0; i < array.length; i++) {
                 var timelineTemplateSingle=$($timelineTemplate.clone().html());
                 timelineTemplateSingle.attr("id","timeline-"+i);
@@ -86,6 +86,29 @@ function fillTimePlot(){
    
 }
 
+function getImages(){
+    $.ajax({
+        type:"GET",
+        url:"http://localhost:5000/api/issue/images",
+        headers:{
+            "issue": window.location.href.split('/').reverse()[0]
+        },
+        success: function(res){
+            var array = JSON.parse(res).data;
+            console.log(array);
+            var i;
+            for (i = 0; i < array.length; i++) {
+                var imageTemplateSingle=$($imagesTemplate.clone().html());
+                imageTemplateSingle.find(".issue-images").attr("src", array[i]);
+                $("#container-images").append(imageTemplateSingle);
+            }
+        },
+        error: function(){
+            return false;
+        }
+    });
+}
+
 async function drawChart() {
     var array = await fillTimePlot();
     var data = google.visualization.arrayToDataTable(array);
@@ -117,8 +140,10 @@ async function drawChart() {
 $(function(){
     $accountsTemplate = $("#template-accounts");
     $timelineTemplate = $("#template-timeline");
+    $imagesTemplate = $("#template-images");
     fillAccounts();
     fillTimeline();
+    getImages();
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);  
 });

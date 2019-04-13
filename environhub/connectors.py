@@ -66,5 +66,18 @@ def getTrendsKey(issue="kaveriissue"):
     df.set_index("FILE",inplace=True)
     return df.loc[issue]["TRENDS"]
 
+
+def getImages(issue="kaveriissue"):
+    try:
+        df = pd.read_excel("{}.xlsx".format(issue), sheet_name="Image")
+        List = df["URL"].values.tolist()
+        return json.dumps({"data": List}), 200
+    except:
+        df = pd.read_excel("{}.xlsx".format(issue), sheet_name="Images")
+        List = df["URL"].values.tolist()
+        return json.dumps({"data": List}), 200
+
+
+# getImages()
 # getTrendsKey()
 # getIssueTimeLine("climatechange")
