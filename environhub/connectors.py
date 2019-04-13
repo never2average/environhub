@@ -3,7 +3,7 @@ import json
 import time
 from datetime import datetime
 
-baseStr = "/var/www/Environhub/environhub/"
+baseStr = "/var/www/environhub/environhub/"
 
 def getIssueSummary(issue="kaveriissue"):
     try:
