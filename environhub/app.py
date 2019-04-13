@@ -2,7 +2,7 @@ from flask import Flask, make_response, render_template
 from flask_restful import Api, Resource, request
 from connectors import getIssueSummary, getIssueOverTime
 from connectors import getIssueOverPlace, getIssueTimeLine
-from connectors import getIssueAccounts, listIssues
+from connectors import getIssueAccounts, listIssues, getTrendsKey
 
 
 app = Flask(__name__)
@@ -22,7 +22,11 @@ def forumpage():
 @app.route("/details/<string:issueName>")
 def detailsPage(issueName):
     summary = getIssueSummary(issueName)[0]
-    return render_template("details.html", issue_summary=summary)
+    trendword = getTrendsKey(issueName)
+    return render_template(
+        "details.html",
+        issue_summary=summary,
+        trendKey=trendword)
 
 
 class GetSummary(Resource):

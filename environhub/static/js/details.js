@@ -34,6 +34,7 @@ function fillTimeline(){
         success: function(res){
             var array = JSON.parse(res).data;
             var i;
+            console.log(res);
             for (i = 0; i < array.length; i++) {
                 var timelineTemplateSingle=$($timelineTemplate.clone().html());
                 timelineTemplateSingle.attr("id","timeline-"+i);
@@ -119,5 +120,5 @@ $(function(){
     fillAccounts();
     fillTimeline();
     google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);    
+    google.charts.setOnLoadCallback(drawChart);  
 });
